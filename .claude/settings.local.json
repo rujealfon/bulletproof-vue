@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(mkdir:*)",
+      "Bash(bun add:*)",
+      "Bash(rm:*)",
+      "Bash(bun run:*)",
+      "Bash(bun test:*)",
+      "Bash(bunx:*)",
+      "Bash(bun remove:*)",
+      "Bash(bun lint:*)"
+    ],
+    "deny": []
+  }
+}
