@@ -23,6 +23,26 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   
   {
+    name: 'app/vue-rules',
+    rules: {
+      'vue/multi-word-component-names': [
+        'error',
+        {
+          ignores: ['Button', 'Input', 'Card', 'Label', 'CardHeader', 'CardContent']
+        }
+      ]
+    }
+  },
+  
+  {
+    name: 'app/typescript-rules',
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }]
+    }
+  },
+  
+  {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },

@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "Bash(bun add:*)",
+      "Bash(bunx shadcn-vue@latest init:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(bunx shadcn-vue@latest add:*)",
+      "Bash(bun run:*)",
+      "Bash(bun test:*)",
+      "Bash(timeout:*)"
+    ],
+    "deny": []
+  }
+}
