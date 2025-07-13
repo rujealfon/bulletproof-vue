@@ -1,14 +1,32 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
-import { createPinia } from 'pinia'
-
 import App from './App.vue'
-import router from './router'
+import { setupApp } from './app'
+import { config } from './config'
 
-const app = createApp(App)
+async function enableMocking() {
+  if (!config.enableMocking || config.environment === 'production') {
+    return
+  }
 
-app.use(createPinia())
-app.use(router)
+  try {
+    const { worker } = await import('./testing/mocks/browser')
+    
+    await worker.start({
+      onUnhandledRequest: 'warn',
+      serviceWorker: {
+        url: '/mockServiceWorker.js'
+      }
+    })
+    
+    console.log('🔶 MSW enabled')
+  } catch (error) {
+    console.warn('MSW failed to start:', error)
+    // Continue without mocking
+  }
+}
 
-app.mount('#app')
+enableMocking().finally(() => {
+  const app = setupApp(App)
+  app.mount('#app')
+})

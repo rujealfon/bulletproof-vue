@@ -23,6 +23,14 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   
   {
+    name: 'app/custom-rules',
+    rules: {
+      'vue/multi-word-component-names': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+    },
+  },
+  
+  {
     ...pluginVitest.configs.recommended,
     files: ['src/**/__tests__/*'],
   },
